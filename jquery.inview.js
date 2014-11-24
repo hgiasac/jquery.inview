@@ -127,8 +127,8 @@
                     visiblePartX = (viewportOffset.left > elementOffset.left ?
                         'right' : (viewportOffset.left + viewportSize.width) < (elementOffset.left + elementSize.width) ?
                         'left' : 'both');
-                    visiblePartY = (viewportOffset.top < elementOffset.top ?
-                        'top' : (viewportOffset.top + viewportSize.height) > (elementOffset.top + elementSize.height) ?
+                    visiblePartY = (viewportOffset.top <= elementOffset.top ?
+                        'top' : (viewportOffset.top + viewportSize.height) >= (elementOffset.top + elementSize.height) ?
                         'bottom' : 'both');
                     visiblePartsMerged = visiblePartX + '-' + visiblePartY;
                     if (!inView || inView !== visiblePartsMerged) {
