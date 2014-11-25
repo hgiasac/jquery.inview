@@ -111,6 +111,28 @@
                     visiblePartY,
                     visiblePartsMerged;
 
+                // compute element offset and size after padding
+                if (w.inviewPaddingTop) {
+                    elementSize.height -= w.inviewPaddingTop;
+                    elementOffset.top += w.inviewPaddingTop;
+                }
+
+                if (w.inviewPaddingBottom) {
+                    elementSize.height -= w.inviewPaddingBottom;
+                }
+
+                if (w.inviewPaddingLeft) {
+                    elementSize.width -= w.inviewPaddingLeft;
+                    elementOffset.left += w.inviewPaddingLeft;
+                }
+
+                if (w.inviewPaddingRight) {
+                    elementSize.width -= w.inviewPaddingRight;
+                }
+
+                elementSize.width = elementSize.width < 0 ? 0 : elementSize.width;
+                elementSize.height = elementSize.height < 0 ? 0 : elementSize.height;
+
                 // Don't ask me why because I haven't figured out yet:
                 // viewportOffset and viewportSize are sometimes suddenly null in Firefox 5.
                 // Even though it sounds weird:
